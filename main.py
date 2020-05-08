@@ -8,13 +8,9 @@ from model import Donation, Donor
 app = Flask(__name__)
 
 @app.route('/')
-def home():
-    return redirect(url_for('all'))
-
-@app.route('/donations/')
-def all():
+def donations():
     donations = Donation.select()
-    return render_template('donations.jinja2', donations=donations)
+    return render_template('all_donations.jinja2', donations=donations)
 
 @app.route('/add_donation', methods=['GET', 'POST'])
 def add_donation():
@@ -37,6 +33,18 @@ def add_donation():
 
     else:
         return render_template('add_donation.jinja2')
+
+@app.route('/donors/')
+def all_donors():
+    return render_template('all_donors.jinja2')
+
+@app.route('/thank_you/')
+def thank_you():
+    return render_template('thank_you.jinja2')
+
+@app.route('/add_donor/')
+def add_donor():
+    return render_template('add_donor.jinja2')
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 6738))

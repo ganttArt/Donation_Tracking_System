@@ -29,7 +29,7 @@ def add_donation():
         if request.form['name'] not in temp_list:
             donor = Donor(name=request.form['name'])
             donor.save()
-
+            
         donation = Donation(value=request.form['amount'],
                             donor=Donor.select().where(Donor.name == request.form['name']).get())
         donation.save() 

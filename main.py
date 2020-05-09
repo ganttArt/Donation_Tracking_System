@@ -55,9 +55,13 @@ def add_donor():
         return render_template('add_donor.jinja2')
 
 
-@app.route('/thank_you/')
+@app.route('/thank_you/', methods=['GET', 'POST'])
 def thank_you():
-    return render_template('thank_you.jinja2')
+    if request.method == 'POST':
+        donor = Donor.select().where(Donor.name == request.form['name']).get()
+        return render_template('personalized_thank_you.jinja2', donor=donor)
+    else:
+        return render_template('generate_thank_you.jinja2')
 
 
 

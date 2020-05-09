@@ -3,5 +3,9 @@
 {% block subtitle %}Donors{% endblock subtitle %}
 
 {% block content %}
-
+<ul>
+    {% for donor in donors %}
+        <li>{{ donor.name }}</li>
+    {% endfor %}
+</ul>
 {% endblock content %}

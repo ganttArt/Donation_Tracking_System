@@ -10,13 +10,13 @@ db.drop_tables([Donor, Donation])
 
 db.create_tables([Donor, Donation])
 
-alice = Donor(name="Alice")
+alice = Donor(name="Alice Stephenson", email="stepali@gmail.com")
 alice.save()
 
-bob = Donor(name="Bob")
+bob = Donor(name="Bob Novak", email='bnovak@gmail.com')
 bob.save()
 
-charlie = Donor(name="Charlie")
+charlie = Donor(name="Charlie Harper", email='harpster@gmail.com')
 charlie.save()
 
 donors = [alice, bob, charlie]

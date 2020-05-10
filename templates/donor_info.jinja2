@@ -1,7 +1,16 @@
 {% extends 'base.jinja2' %}
 
-{% block subtitle %} {{ donor.name}} {% endblock subtitle %}
+{% block subtitle %} {{ donor.name}} - {{donor.email}} {% endblock subtitle %}
 
 {% block content %}
-
+<h3>Donations:</h3>
+{# {{donations.value}} #}
+<ul>
+    {% for donation in donations %}
+        <li>
+            {{ donation.date.year }}-{{ donation.date.month }}-{{ donation.date.day }}:
+             ${{ donation.value }}
+        </li>
+    {% endfor %}
+</ul>
 {% endblock content %}

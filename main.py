@@ -30,7 +30,6 @@ def donor_info():
 @app.route('/add_donation', methods=['GET', 'POST'])
 def add_donation():
     if request.method == 'POST':
-        
         temp_list = []
 
         for donor in Donor().select():
@@ -45,7 +44,6 @@ def add_donation():
         donation.save() 
 
         return redirect(url_for('donations'))
-
     else:
         return render_template('add_donation.jinja2')
 

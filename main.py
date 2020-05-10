@@ -11,10 +11,19 @@ def donations():
     return render_template('all_donations.jinja2', donations=donations)
 
 
-@app.route('/donors/')
+@app.route('/donors/', methods=['GET', 'POST'])
 def all_donors():
-    donors = Donor.select()
-    return render_template('all_donors.jinja2', donors=donors)
+    if request.method == 'POST': 
+        donor = Donor.select().where(Donor.name == request.form['donor_name']).get()
+        return render_template('donor_info.jinja2', donor=donor)
+    else:
+        donors = Donor.select()
+        return render_template('all_donors.jinja2', donors=donors)
+
+
+@app.route('/donor')
+def donor_info():
+    return render_template('donor_info.jinja2')
 
 
 @app.route('/add_donation', methods=['GET', 'POST'])

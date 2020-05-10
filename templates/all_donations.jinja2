@@ -5,7 +5,9 @@
 {% block content %}
 <ul>
     {% for donation in donations %}
-        <li><b>{{ donation.donor.name }}</b>: ${{ donation.value }}</li>
+        <li>{{ donation.date.year }}-{{ donation.date.month }}-{{ donation.date.day }}  
+            {{ donation.donor.name }}  ${{ donation.value }}
+        </li>
     {% endfor %}
 </ul>
 {% endblock content %}

@@ -3,9 +3,11 @@
 {% block subtitle %}Donors{% endblock subtitle %}
 
 {% block content %}
-<ul>
-    {% for donor in donors %}
-        <li>{{ donor.name }}</li>
-    {% endfor %}
-</ul>
+<form method="POST">
+    <ul>
+        {% for donor in donors %}
+            <li><input type="submit" name='donor_name' value="{{ donor.name }}"></li>
+        {% endfor %}
+    </ul>
+</form>
 {% endblock content %}

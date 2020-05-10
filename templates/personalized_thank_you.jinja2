@@ -1,6 +1,12 @@
 {% extends 'base.jinja2' %}
 
-{% block subtitle %}Thank You {{ donor.name }}{% endblock subtitle %}
+{% block subtitle %}Thank You for {{ donor.name }}{% endblock subtitle %}
 
 {% block content %}
+<p>
+    Dear {{ donor.name }},<br/>    Thank you
+    for your donation of ${{ donation.value }}<br/>
+    Sincerely,<br/>
+    Chris Gantt
+</p>
 {% endblock content %}

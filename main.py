@@ -4,8 +4,6 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from model import Donation, Donor
 
 app = Flask(__name__)
-app.debug = True
-app.secret_key = 'development key'
 
 @app.route('/')
 def donations():
@@ -71,10 +69,10 @@ def add_donor():
 def thank_you():
     if request.method == 'POST':
         donor = Donor.select().where(Donor.name == request.form['name']).get()
-        return render_template('personalized_thank_you.jinja2', donor=donor)
+        donation = [donation for donation in Donation.select() if donation.donor_id == donor.id][-1]
+        return render_template('personalized_thank_you.jinja2', donor=donor, donation=donation)
     else:
         return render_template('generate_thank_you.jinja2')
-
 
 
 if __name__ == "__main__":

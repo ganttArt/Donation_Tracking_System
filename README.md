@@ -1,3 +1,36 @@
-# Donation_Tracking_System
-<b>Donation tracking system built with Python, Flask, Jinja2 and SQLite. Deployed to Heroku.</b></br></br>
-This web application allows non-profits to keep track of donations and donors. The site includes a page that displays all donations and another listing all donors with links to donor profile pages which include donor info and their past donations. The app provides pages to add new donors, to add a donation, and another to generate a thank you email to a donor regarding their most recent donation. 
+# Donation Tracking System
+
+Web application allowing non-profits to keep track of donations and donors.
+
+## Pages / Functionality
+
+- Homepage: displays all donations
+- All donors page
+- Donor detail page
+- Add donor
+- Add donation
+- Generate thank you note for last donation
+
+## Technologies Used
+
+Python, Flask, Jinja2 and PostgreSQL. Deployed to Heroku.
+
+## Frontend
+
+Homepage:
+![home](./assets/home.png)
+
+All donors page:
+![donors](./assets/donors.png)
+
+Donor detail page:
+![donor-profile](./assets/donor-profile.png)
+
+Add donor:
+![add-donor](./assets/add-donor.png)
+
+Add donation:
+![add-donation](./assets/add-donation.png)
+
+Generate thank you note, referencing most recent donation:
+![generate-thank-you](./assets/generate-thank-you.png)
